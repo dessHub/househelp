@@ -12,7 +12,7 @@ class Post extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'empl_name', 'empl_id', 'location', 'salary', 'description', 'category',
+        'empl_name', 'empl_id', 'location', 'salary', 'description', 'category', 'validity'
     ];
 
     /**

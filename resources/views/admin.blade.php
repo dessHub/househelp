@@ -13,11 +13,11 @@
             <li><a href="{{ url('/signE')}}" ><span  style="color:blue;">Register As Employer</span></a></li>
             <li><a href="{{ url('/login')}}"><span  style="color:blue;">login</span> </a></li>
           @else
-            @if(Auth::user()->role === "Employer")
-            <li><a href="{{ url('/post')}}"><span  style="color:blue;">Post Job </span> </a></li>
-            <li><a href="{{ url('/')}}"><span  style="color:blue;">Our Services</span></a></li>
+            @if(Auth::user()->role === "Admin")
+            <li><a href="{{ url('/posts')}}"><span  style="color:blue;">Job Posts </span> </a></li>
+            <li><a href="{{ url('/hHelps')}}"><span  style="color:blue;">House Helps</span></a></li>
             @endif
-            <li><a href="{{ url('/logout')}}"><span  style="color:blue;">Logout</span></a></li>
+            <li><a href="{{ url('/logout')}}"><span  style="color:blue;">Logout</span> </a></li>
           @endif
 
             <li><a href="{{ url('/')}}"><span  style="color:blue;">Home</span> </a></li>

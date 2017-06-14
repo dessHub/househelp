@@ -4,10 +4,8 @@ namespace App\Http\Controllers;
 
 use App\User;
 use App\Post;
-use App\Department;
-use App\Course;
 use App\Category;
-use App\Unit;
+use App\Star;
 use Validator;
 use Auth;
 use App\Http\Requests;
@@ -38,6 +36,108 @@ class IndexController extends Controller
         $id = Auth::user()->id;
         $post = Post::where('empl_id','=',$id)->get();
         return view('post')->with('posts', $post)->with('cats', $name);
+    }
+
+  public function posts()
+    {
+        $post = Post::get();
+        return view('posts')->with('posts',$post);
+    }
+
+  public function myjobs()
+    {
+        $post = Post::where('category','=',Auth::user()->category)->get();
+        return view('posts')->with('posts',$post);
+    }
+
+    protected function validity(){
+      $rules = array(
+              'post_id' => 'required|max:100'
+          );
+
+          $validator = Validator::make(Input::all(), $rules);
+    
+
+    // check if the validator failed -----------------------
+    if ($validator->fails()) {
+
+        // get the error messages from the validator
+        $messages = $validator->messages();
+
+        // redirect our user back to the form with the errors from the validator
+        return Redirect::to('/posts')
+            ->withErrors($validator);
+
+    } else {
+        // validation successful ---------------------------
+
+        // report has passed all tests!
+        // let him enter the database
+
+        // create the data for report
+      if(Input::get('valid') === 'Unverified'){
+         $post_obj = new Post();
+         $post_obj->id = Request::input('post_id');
+         $post = Post::find($post_obj->id); // Eloquent Model
+         $post->update(['validity'=>'Verified']);
+         return redirect('/posts');
+         
+       }elseif(Input::get('valid') === 'Verified'){
+         $post_obj = new Post();
+         $post_obj->id = Request::input('post_id');
+         $post = Post::find($post_obj->id); // Eloquent Model
+         $post->update(['status'=>'Closed']);
+         return redirect('/posts');
+
+
+       }
+     }
+
+    }
+
+    protected function star(){
+      $rules = array(
+              'post_id' => 'required|max:100'
+          );
+
+          $validator = Validator::make(Input::all(), $rules);
+    
+
+    // check if the validator failed -----------------------
+    if ($validator->fails()) {
+
+        // get the error messages from the validator
+        $messages = $validator->messages();
+
+        // redirect our user back to the form with the errors from the validator
+        return Redirect::to('/posts')
+            ->withErrors($validator);
+
+    } else {
+        // validation successful ---------------------------
+
+        // report has passed all tests!
+        // let him enter the database
+
+        // create the data for report
+      $count = Star::where('user_id','=',Auth::user()->id)->where('post_id','=', Input::get('post_id'))->count();
+      if($count > 0){
+         
+         return redirect('/posts');
+         
+       }else{
+         $star = new Star;
+        $star->user_id     = Auth::user()->id;
+        $star->post_id     = Input::get('post_id');
+        $star->user_name = Auth::user()->name;
+        $star->star    = "Star";
+        $star->save();
+         return redirect('/posts');
+
+
+       }
+     }
+
     }
 
     protected function addPost() {
@@ -86,6 +186,26 @@ class IndexController extends Controller
          }
 
     }
+
+  protected function deletepost($id) {
+
+    $hit = Post::find($id);
+    $hit->delete();
+    return Redirect::to('/post');
+  }
+
+    public function admin()
+    {
+        $name = User::where('role','=','Employer')->get();
+        return view('admin')->with('users', $name);
+    }
+
+    public function househelps()
+    {
+        $name = User::where('role','=','Househelp')->get();
+        return view('admin')->with('users', $name);
+    }
+
 
     public function cat()
     {

@@ -9,9 +9,9 @@
                 <div class="panel-body">
                     <form class="form-horizontal" role="form" method="POST" action="{{ url('/register') }}">
                         {{ csrf_field() }}
-                       <div class="col-md-9">
+                       <div class="col-md-6">
                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                            <label for="name" class="col-md-3 control-label">Name</label>
+                            <label for="name" class="col-md-4 control-label">Name</label>
 
                             <div class="col-md-9">
                                 <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}">
@@ -23,9 +23,8 @@
                                 @endif
                             </div>
                         </div>
-                      </div>
 
-                        <div class="col-md-6">
+                        
                         <div class="form-group{{ $errors->has('phoneNo') ? ' has-error' : '' }}">
                             <label for="phoneNo" class="col-md-4 control-label">Mobile No:</label>
 
@@ -62,6 +61,21 @@
                                  @foreach($cats as $key)
                                 <option  value="{{ $key->name }}">{{ $key->name }}</option>
                                 @endforeach
+
+                           </select>
+                      </div>
+                  </div>
+
+                  <div class="form-group{{ $errors->has('county') ? ' has-error' : '' }}">
+                      <label for="county" class="col-md-4 control-label">County:</label>
+
+                      <div class="col-md-9">
+                           <select class="form-control" id="county" name="county" required="true" value="{{ old('county') }}" style="background-color : inherit">
+                               <option  value="">Select County</option>
+                                 
+                                <option  value="Mombasa">Mombasa</option>
+                                <option  value="Kwale">Kwale</option>
+                                <option  value="Kilifi">Kilifi</option>
 
                            </select>
                       </div>
@@ -114,6 +128,37 @@
                                   @endif
                               </div>
                           </div>
+
+                          <div class="form-group{{ $errors->has('nationality') ? ' has-error' : '' }}">
+                              <label for="nationality" class="col-md-4 control-label">Nationality</label>
+
+                              <div class="col-md-9">
+                                  <input id="nationality" type="text" class="form-control" name="nationality" value="{{ old('nationality') }}">
+
+                                  @if ($errors->has('nationality'))
+                                      <span class="help-block">
+                                          <strong>{{ $errors->first('nationality') }}</strong>
+                                      </span>
+                                  @endif
+                              </div>
+                          </div>
+
+                  <div class="form-group{{ $errors->has('education') ? ' has-error' : '' }}">
+                      <label for="cat" class="col-md-4 control-label">Education:</label>
+
+                      <div class="col-md-9">
+                           <select class="form-control" id="education" name="education" required="true" value="{{ old('education') }}" style="background-color : inherit">
+                               <option  value="">Select education</option>
+                                 
+                                <option  value="Primary">Primary</option>
+                                <option  value="High School">High School</option>
+                                <option  value="Tertiary">Tertiary</option>
+
+                           </select>
+                      </div>
+                  </div>
+
+
 
                           <div class="form-group{{ $errors->has('location') ? ' has-error' : '' }}">
                               <label for="location" class="col-md-4 control-label">Location</label>

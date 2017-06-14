@@ -89,11 +89,18 @@
                                   <td>{{ $key->category}}</td>
                                   <td>{{ $key->salary}}</td>
                                   <td>{{ $key->description}}</td>
+                                  <td>{{ $key->validity}}</td>
                                   <td class="td-actions text-right">
                                   <div class="stats">
                                       <i class="fa fa-history"></i> Posted On {{ $key->created_at}}
                                   </div>
                                   </td>
+                              <td>
+                                 <button type="submit" class="btn btn-danger"><a href="{{ url('/deletepost'.$key->id) }}">
+                                              <i class="fa fa-btn fa-remove"></i> Delete</a>
+                                          </button>
+
+                                   </td>
 
                               </tr>
                               @endforeach

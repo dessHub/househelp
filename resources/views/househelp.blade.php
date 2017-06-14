@@ -8,28 +8,19 @@
         <div class="posts">
           <h3>Quick Links</h3>
           <ul style="color:blue;">
+          @if(Auth::guest())
+
             <li><a href="{{ url('/signup')}}" ><span  style="color:blue;">Register As Househelp</span></a></li>
             <li><a href="{{ url('/login')}}"><span  style="color:blue;">login</span> </a></li>
+          @else
+            @if(Auth::user()->role === "Househelp")
+            <li><a href="{{ url('/myjobs')}}"><span  style="color:blue;">Marging Jobs </span> </a></li>
+            @endif
+            <li><a href="{{ url('/logout')}}"><span  style="color:blue;">Logout</span></a></li>
+          @endif
             <li><a href="{{ url('/')}}"><span  style="color:blue;">Home</span> </a></li>
             <li><a href="{{ url('/')}}"><span  style="color:blue;">Our Services</span></a></li>
             <li><a href="{{ url('/')}}"><span  style="color:blue;">About Us</span></a></li>
-          </ul>
-        </div>
-        <div class="archives">
-          <h3>Archives</h3>
-          <ul>
-            <li><a href="">December</a></li>
-            <li><a href="">June</a></li>
-            <li><a href="">November</a></li>
-            <li><a href="">May</a></li>
-            <li><a href="">October</a></li>
-            <li><a href="">April</a></li>
-            <li><a href="">September</a></li>
-            <li><a href="">March</a></li>
-            <li><a href="">August</a></li>
-            <li><a href="">February</a></li>
-            <li><a href="">July</a></li>
-            <li><a href="">January</a></li>
           </ul>
         </div>
       </div>
@@ -57,7 +48,8 @@
                       </div>
                     </div>
                         <div class="panel-footer" style="height:40px;">
-                        <div class="col-md-8"><b>Location:</b> {{ $key->location}}</div>
+                        <div class="col-md-4"><b>Location:</b> {{ $key->location}}</div>
+                        <div class="col-md-4"><b></b> {{ $key->validity}}</div>
                         <div class="col-md-4"><b>Salary:</b> Ksh.{{ $key->salary}}</div>
                         </div>
 

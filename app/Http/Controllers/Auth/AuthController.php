@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\User;
 use Validator;
+use Illuminate\Support\Facades\Input;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
@@ -79,6 +80,9 @@ class AuthController extends Controller
             'location' => $data['location'],
             'category' => $data['category'],
             'gender' => $data['gender'],
+            'education' => Input::get('education'),
+            'county' => Input::get('county'),
+            'nationality' => Input::get('nationality'),
         ]);
     }
 }

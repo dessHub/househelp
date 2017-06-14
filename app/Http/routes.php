@@ -59,3 +59,11 @@ $this->get('cat', 'IndexController@cat');
 $this->post('cat', 'IndexController@addCat');
 $this->get('post', 'IndexController@post');
 $this->post('post', 'IndexController@addPost');
+$this->get('deletepost{id}', 'IndexController@deletepost');
+
+$this->get('admin', 'IndexController@admin');
+$this->get('hHelps', 'IndexController@househelps');
+$this->get('posts', 'IndexController@posts');
+$this->post('validity', 'IndexController@validity');
+$this->get('myjobs', 'IndexController@myjobs');
+$this->post('star', 'IndexController@star');
