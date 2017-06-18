@@ -16,7 +16,7 @@
           @elseif (Auth::user()->role === "Employer")
             <li><a href="{{ url('/post') }}">Post Job</a></li>
           @else
-
+            <li><a href="{{ url('/mystars') }}">My Bids</a></li>
           @endif
           <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
         @endif

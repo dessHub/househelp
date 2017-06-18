@@ -45,6 +45,7 @@
                                 <th>Email</th>
                                 <th>Mobile No</th>
                                 <th>Location</th>
+                                <th>Education</th>
 
                             </thead>
                             <tbody>
@@ -56,7 +57,7 @@
                                   <td>{{ $key->email }}</td>
                                   <td>{{ $key->phoneno}}</td>
                                   <td>{{ $key->location }}</td>
-                                  <td><a href="url('user'.$key->id)">View</a></td>
+                                  <td>{{ $key->education }}</td>
 
                                 </tr>
                                 @endforeach

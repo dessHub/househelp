@@ -42,23 +42,23 @@
   <div class="footer">
     <ul>
       <li class="selected">
-        <a href="index.html"><img src="./public/images/meeting2.jpg" alt="Img" /></a>
+        <a href="#"><img src="./public/images/meeting2.jpg" alt="Img" /></a>
         <p>
-          <a href="index.html">All over the world,</a><br/>
+          <a href="#">All over the world,</a><br/>
           house helps play an integral role in the economic and social developments.
         </p>
       </li>
       <li>
-        <a href="index.html"><img src="./public/images/flags2.jpg" alt="Img" /></a>
+        <a href="#"><img src="./public/images/flags2.jpg" alt="Img" /></a>
         <p>
-          <a href="index.html">Its user friendly</a><br/>
+          <a href="#">Its user friendly</a><br/>
           provides a convenient channel for employer to find house-help and vice versa.
         </p>
       </li>
       <li>
-        <a href="index.html"><img src="./public/images/boys.jpg" alt="Img" /></a>
+        <a href="#"><img src="./public/images/boys.jpg" alt="Img" /></a>
         <p>
-          <a href="index.html">In sagittis lacus mollis nunc</a><br/>
+          <a href="#">In sagittis lacus mollis nunc</a><br/>
           malesuada et facilisisipsum scelerisque
         </p>
       </li>

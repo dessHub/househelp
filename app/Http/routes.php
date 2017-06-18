@@ -60,6 +60,7 @@ $this->post('cat', 'IndexController@addCat');
 $this->get('post', 'IndexController@post');
 $this->post('post', 'IndexController@addPost');
 $this->get('deletepost{id}', 'IndexController@deletepost');
+$this->get('mystars', 'IndexController@mystars');
 
 $this->get('admin', 'IndexController@admin');
 $this->get('hHelps', 'IndexController@househelps');

@@ -50,13 +50,19 @@ class IndexController extends Controller
         return view('posts')->with('posts',$post);
     }
 
+  public function mystars()
+    {
+        $name = Star::where("user_id","=",Auth::user()->id)->get();
+        return view('mystars')->with('posts', $name);
+    }
+
     protected function validity(){
       $rules = array(
               'post_id' => 'required|max:100'
           );
 
           $validator = Validator::make(Input::all(), $rules);
-    
+
 
     // check if the validator failed -----------------------
     if ($validator->fails()) {
@@ -81,7 +87,7 @@ class IndexController extends Controller
          $post = Post::find($post_obj->id); // Eloquent Model
          $post->update(['validity'=>'Verified']);
          return redirect('/posts');
-         
+
        }elseif(Input::get('valid') === 'Verified'){
          $post_obj = new Post();
          $post_obj->id = Request::input('post_id');
@@ -101,7 +107,7 @@ class IndexController extends Controller
           );
 
           $validator = Validator::make(Input::all(), $rules);
-    
+
 
     // check if the validator failed -----------------------
     if ($validator->fails()) {
@@ -122,9 +128,9 @@ class IndexController extends Controller
         // create the data for report
       $count = Star::where('user_id','=',Auth::user()->id)->where('post_id','=', Input::get('post_id'))->count();
       if($count > 0){
-         
+
          return redirect('/posts');
-         
+
        }else{
          $star = new Star;
         $star->user_id     = Auth::user()->id;
