@@ -25,26 +25,23 @@
                                       <i class="fa fa-history"></i> Posted On {{ $key->created_at}}
                                   </div>
                                   </td>
-                                    <td> 
+                                    <td>
                                     @if(Auth::user()->role === "Admin")
                                             <form class="form-horizontal" role="form" method="POST" action="{{ url('/validity') }}">
                                                 {{ csrf_field() }}
                                                 <input class="form-control" type="hidden" name="post_id" id="post_id" value="{{ $key->id}}"/>
                                                 <input class="form-control" type="hidden" name="valid" id="valid" value="{{ $key->validity}}"/>
-                                                
+
                                                 @if($key->validity === "Unverified")
                                                 <button type="submit" class="btn btn-primary">
                                                     <i class="fa fa-btn fa-tick"></i> Verify
                                                 </button>
                                                  @elseif($key->validity === "Verified")
-                                                <button type="submit" class="btn btn-default">
-                                                    <i class="fa fa-btn fa-tick"></i> Mark AS Closed
-                                                </button>
                                                 @else
                                                 <div>Closed</div>
-                                                
+
                                                  @endif
-                                                
+
                                                 </form>
                                     @elseif(Auth::user()->role === "Househelp")
                                             <form class="form-horizontal" role="form" method="POST" action="{{ url('/star') }}">
@@ -54,11 +51,11 @@
                                                 <button type="submit" class="btn btn-default">
                                                     <i class="fa fa-btn fa-star"></i> Interested
                                                 </button>
-                                                
+
                                                 </form>
 
                                     @endif
-                                          </td> 
+                                          </td>
 
                               </tr>
                               @endforeach
