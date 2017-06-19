@@ -23,49 +23,49 @@
 
     <div class="">
 
-<div id="adbox">
-  <div class="body">
-    <div class="images">
-      <img src="./public/images/discussing2.jpg" alt="Img" class="preview" />
-      <img src="./public/images/shake-hands.jpg" alt="Img" height="144" width="230px" />
-      <img src="./public/images/professionals.jpg" alt="Img" height="135" width="230px" class="last" />
-    </div>
-    <div class="details">
-      <p>
-        <span>
-          ONLINE HOUSE HELP SYSTEM FOR EFFICIENT RECRUITMENT.
-        </span>
-        The system provides a flexible, cost-effective and time efficient channel for the house-help and potential employers.
-      </p>
-    </div>
-  </div>
-  <div class="footer">
-    <ul>
-      <li class="selected">
-        <a href="#"><img src="./public/images/meeting2.jpg" alt="Img" /></a>
-        <p>
-          <a href="#">All over the world,</a><br/>
-          house helps play an integral role in the economic and social developments.
-        </p>
-      </li>
-      <li>
-        <a href="#"><img src="./public/images/flags2.jpg" alt="Img" /></a>
-        <p>
-          <a href="#">Its user friendly</a><br/>
-          provides a convenient channel for employer to find house-help and vice versa.
-        </p>
-      </li>
-      <li>
-        <a href="#"><img src="./public/images/boys.jpg" alt="Img" /></a>
-        <p>
-          <a href="#">In sagittis lacus mollis nunc</a><br/>
-          malesuada et facilisisipsum scelerisque
-        </p>
-      </li>
-    </ul>
-    <span class="bottom-shadow"></span>
-  </div>
-</div>
+      <div id="adbox">
+        <div class="body row" style="margin-top:50px;">
+          <div class="col-md-8">
+            <img src="./public/images/pic3.jpg" alt="Img" class="thumbnail img-resposive" style="width:100%; height:200px;">
+
+          </div>
+          <div class="col-md-4">
+            <p>
+              <span>
+                ONLINE HOUSE HELP SYSTEM FOR EFFICIENT RECRUITMENT.
+              </span>
+              The system provides a flexible, cost-effective and time efficient channel for the house-help and potential employers.
+            </p>
+            <img src="./public/images/pic4.jpg" alt="Img" class="thumbnail img-resposive" style="width:100%; height:150px;">
+          </div>
+        </div>
+        <div class="footer">
+          <ul>
+            <li class="selected">
+              <a href="#"><img src="./public/images/pic.jpg" alt="Img" style="width:60px; height:80px;"/></a>
+              <p>
+                <a href="#">All over the world,</a><br/>
+                house helps play an integral role in the economic and social developments.
+              </p>
+            </li>
+            <li>
+              <a href="#"><img src="./public/images/pic2.jpg" alt="Img" style="width:60px; height:80px;" /></a>
+              <p>
+                <a href="#">Its user friendly</a><br/>
+                provides a convenient channel for employer to find house-help and vice versa.
+              </p>
+            </li>
+            <li>
+              <a href="#"><img src="./public/images/pic4.jpg" alt="Img" style="width:60px; height:80px;" /></a>
+              <p>
+                <a href="#">Its Efficient.</a><br/>
+                Get househelp any time of the day.
+              </p>
+            </li>
+          </ul>
+          <span class="bottom-shadow"></span>
+        </div>
+      </div>
 
 
       </div>
