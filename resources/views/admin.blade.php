@@ -56,7 +56,7 @@
                                   <td>{{ $key->email }}</td>
                                   <td>{{ $key->phoneno}}</td>
                                   <td>{{ $key->location }}</td>
-                                  <td><a href="url('user'.$key->id)">View</a></td>
+                                  <td><a href="{{url('del'.$key->id)}}">Remove</a></td>
 
                                 </tr>
                                 @endforeach

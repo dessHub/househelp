@@ -23,7 +23,7 @@
 
     <div class="">
 
-      <div id="adbox">
+      <div id="adbox" >
         <div class="body row" style="margin-top:50px;">
           <div class="col-md-8">
             <img src="./public/images/pic3.jpg" alt="Img" class="thumbnail img-resposive" style="width:100%; height:200px;">

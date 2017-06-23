@@ -61,10 +61,14 @@ $this->get('post', 'IndexController@post');
 $this->post('post', 'IndexController@addPost');
 $this->get('deletepost{id}', 'IndexController@deletepost');
 $this->get('mystars', 'IndexController@mystars');
+$this->get('applicants', 'IndexController@applicants');
+$this->get('del{id}', 'IndexController@deleteUser');
+
 
 $this->get('admin', 'IndexController@admin');
 $this->get('hHelps', 'IndexController@househelps');
 $this->get('posts', 'IndexController@posts');
 $this->post('validity', 'IndexController@validity');
 $this->get('myjobs', 'IndexController@myjobs');
+$this->get('bid{id}', 'IndexController@loadBid');
 $this->post('star', 'IndexController@star');

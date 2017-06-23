@@ -12,7 +12,7 @@ class Star extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'user_id', 'user_name', 'post_id', 'star',
+        'user_id', 'user_name', 'post_id', 'empl_id', 'phoneno', 'category', 'star',
     ];
 
     /**

@@ -56,6 +56,12 @@ class IndexController extends Controller
         return view('mystars')->with('posts', $name);
     }
 
+  public function applicants()
+    {
+        $name = Star::where("empl_id","=",Auth::user()->id)->get();
+        return view('aplications')->with('posts', $name);
+    }
+
     protected function validity(){
       $rules = array(
               'post_id' => 'required|max:100'
@@ -101,9 +107,22 @@ class IndexController extends Controller
 
     }
 
+  public function loadBid($id)
+    {
+        $name = Star::where("user_id","=",Auth::user()->id)->where("post_id","=",$id)->count();
+        $post = Post::findOrFail($id);
+        if($name > 0){
+          return view('404');
+        }else{
+          return view('bidding')->with('post', $post);
+        }
+
+    }
+
     protected function star(){
       $rules = array(
-              'post_id' => 'required|max:100'
+              'post_id' => 'required|max:100',
+              'description' => 'required|max:200',
           );
 
           $validator = Validator::make(Input::all(), $rules);
@@ -114,9 +133,10 @@ class IndexController extends Controller
 
         // get the error messages from the validator
         $messages = $validator->messages();
+        $id = Input::get('post_id');
 
         // redirect our user back to the form with the errors from the validator
-        return Redirect::to('/posts')
+        return Redirect::to('/bid'.$id)
             ->withErrors($validator);
 
     } else {
@@ -129,16 +149,19 @@ class IndexController extends Controller
       $count = Star::where('user_id','=',Auth::user()->id)->where('post_id','=', Input::get('post_id'))->count();
       if($count > 0){
 
-         return redirect('/posts');
+         return redirect('/mystars');
 
        }else{
          $star = new Star;
         $star->user_id     = Auth::user()->id;
         $star->post_id     = Input::get('post_id');
+        $star->empl_id     = Input::get('h_id');
+        $star->category     = Input::get('cat');
         $star->user_name = Auth::user()->name;
-        $star->star    = "Star";
+        $star->phoneno = Auth::user()->phoneno;
+        $star->star    = Input::get('description');
         $star->save();
-         return redirect('/posts');
+         return redirect('/mystars');
 
 
        }
@@ -199,6 +222,13 @@ class IndexController extends Controller
     $hit->delete();
     return Redirect::to('/post');
   }
+
+protected function deleteUser($id) {
+
+  $hit = User::find($id);
+  $hit->delete();
+  return Redirect::to('/hHelps');
+}
 
     public function admin()
     {

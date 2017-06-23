@@ -34,7 +34,8 @@
               @foreach($posts as $key)
                 <div class="panel panel-default">
                     <div class="panel-heading" style="height:40px;">
-                    <div class="col-md-6">{{ $key->category}}</div>
+                    <div class="col-md-4">{{ $key->category}}</div>
+                    <div class="col-md-2"><a href="{{ url('/bid'.$key->id)}}">Apply</a></div>
                     <div class="col-md-6"><i class="fa fa-history"></i> Posted On {{ $key->created_at}}</div>
                     </div>
                     <div class="panel-body">

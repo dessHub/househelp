@@ -44,15 +44,7 @@
 
                                                 </form>
                                     @elseif(Auth::user()->role === "Househelp")
-                                            <form class="form-horizontal" role="form" method="POST" action="{{ url('/star') }}">
-                                                {{ csrf_field() }}
-                                                <input class="form-control" type="hidden" name="post_id" id="post_id" value="{{ $key->id}}"/>
-
-                                                <button type="submit" class="btn btn-default">
-                                                    <i class="fa fa-btn fa-star"></i> Interested
-                                                </button>
-
-                                                </form>
+                                      <div class="col-md-2"><a href="{{ url('/bid'.$key->id)}}">Apply</a></div>
 
                                     @endif
                                           </td>
